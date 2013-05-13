@@ -59,6 +59,33 @@ Or use common command line option.
   --twitter_oauth_token_secret
 ```
 
+## Create your token by shared applicaton. (Optional)
+
+You can use shared application token that provided by me.
+
+- My Shared Token: `dQ8DiBEAXgJi50AnkfiKw`
+- My Shared Secret: `gl3rzCxYs7uYltQLC5JaV6IDr0yeGHPDpodbwJ5Skok`
+
+A client name is `knife-plugin`.
+
+```
+$ gem install get-twitter-oauth-token --no-ri --no-rdoc
+Fetching: oauth-0.4.7.gem (100%)
+Successfully installed oauth-0.4.7
+Fetching: get-twitter-oauth-token-1.0.1.gem (100%)
+Successfully installed get-twitter-oauth-token-1.0.1
+2 gems installed
+
+$ get-twitter-oauth-token 
+Consumer Key: dQ8DiBEAXgJi50AnkfiKw
+Consumer Secret: gl3rzCxYs7uYltQLC5JaV6IDr0yeGHPDpodbwJ5Skok
+PIN:  {INPUT PIN}
+
+Token: {your token here.}
+Secret:  {your token_secret here.}
+
+```
+
 ## SubCommands
 
 ** TWITTER COMMANDS **
