@@ -1,4 +1,5 @@
-require "knife-twitter"
+#require "knife-twitter"
+require 'chef/knife/twitter'
 require 'chef/knife'
 
 class Chef
