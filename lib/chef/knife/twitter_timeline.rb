@@ -13,12 +13,21 @@ class Chef
         :description  => "enable mentions",
         :default  => false
 
+      option :twitter_favorite,
+        :short => "-f",
+        :long => "--twitter_favorite",
+        :description  => "enable favorite",
+        :default  => false
+
       banner "knife twitter tl (options)"
       def run
         t_configure
         begin
           if locate_config_value(:twitter_mentions)
             timeline = Twitter.mentions_timeline
+	  elsif locate_config_value(:twitter_favorite)
+	    user_name = locate_config_value(:twitter_user_name)
+	    timeline = Twitter.favorites("#{user_name}")
           else
             timeline = Twitter.home_timeline
           end

@@ -35,6 +35,12 @@ class Chef
             :description  => "Your Twitter OAuth Token Secret",
             :proc => Proc.new { |key| Chef::Config[:knife][:twitter_oauth_token_secret] = key }
 
+          option :twitter_user_name,
+            :short => "-u USER_NAME",
+            :long => "--twitter_user_name",
+            :description  => "Your Twitter User Name",
+            :proc => Proc.new { |key| Chef::Config[:knife][:twitter_user] = key }
+
         end
       end
 
@@ -68,6 +74,7 @@ class Chef
         msg_pair("CONSUMER_SECRET", locate_config_value(:twitter_consumer_secret))
         msg_pair("TOKEN", locate_config_value(:twitter_oauth_token))
         msg_pair("TOKEN_SECRET", locate_config_value(:twitter_oauth_token_secret))
+        msg_pair("USER_NAME", locate_config_value(:twitter_user))
       end
     end
 
