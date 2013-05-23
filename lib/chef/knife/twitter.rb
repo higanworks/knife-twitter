@@ -35,6 +35,12 @@ class Chef
             :description  => "Your Twitter OAuth Token Secret",
             :proc => Proc.new { |key| Chef::Config[:knife][:twitter_oauth_token_secret] = key }
 
+          option :twitter_user_name,
+            :short => "-u USER_NAME",
+            :long => "--twitter_user_name",
+            :description  => "Your Twitter User Name",
+            :proc => Proc.new { |key| Chef::Config[:knife][:twitter_user] = key }
+
         end
       end
 

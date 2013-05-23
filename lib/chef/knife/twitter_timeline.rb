@@ -13,12 +13,20 @@ class Chef
         :description  => "enable mentions",
         :default  => false
 
+      option :twitter_favorite,
+        :short => "-f",
+        :long => "--twitter_favorite",
+        :description  => "show favorite",
+        :default  => false
+
       banner "knife twitter tl (options)"
       def run
         t_configure
         begin
           if locate_config_value(:twitter_mentions)
             timeline = Twitter.mentions_timeline
+          elsif locate_config_value(:twitter_favorite)
+            timeline = Twitter.favorites(Twitter.user[:name])
           else
             timeline = Twitter.home_timeline
           end
@@ -31,7 +39,7 @@ class Chef
         tl_list = []
         timeline.map do |tl|
           tl_list << ui.color(tl[:user][:screen_name], :cyan)
-          tl_list << ui.color(tl[:created_at].to_s, :magenta)
+          tl_list << ui.color(tl[:id].to_s, :magenta)
           tl_list << ui.color(tl[:text])
         end
 
