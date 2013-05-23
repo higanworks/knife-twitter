@@ -74,7 +74,6 @@ class Chef
         msg_pair("CONSUMER_SECRET", locate_config_value(:twitter_consumer_secret))
         msg_pair("TOKEN", locate_config_value(:twitter_oauth_token))
         msg_pair("TOKEN_SECRET", locate_config_value(:twitter_oauth_token_secret))
-        msg_pair("USER_NAME", locate_config_value(:twitter_user))
       end
     end
 
